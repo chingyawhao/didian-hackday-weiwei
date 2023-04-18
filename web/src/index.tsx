@@ -19,7 +19,7 @@ const theme = createTheme({
       dark: grey[600],
     },
     background: {
-      default: '#FFDF6F',
+      default: 'rgb(255, 255, 255)',
     },
   },
 })

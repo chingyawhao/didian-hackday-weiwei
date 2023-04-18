@@ -12,6 +12,7 @@ import {
 } from '@mui/material'
 import { Add as AddIcon } from '@mui/icons-material'
 
+import MoriIcon from '../assets/img/mori-residences-logo.png'
 import { useChatState } from '../stores/chat'
 
 const ChatPage = () => {
@@ -44,6 +45,7 @@ const ChatPage = () => {
     addQuestion(add)
   }
 
+  console.log(MoriIcon)
   return (
     <Grid
       container
@@ -68,10 +70,29 @@ const ChatPage = () => {
         })}
       >
         <Grid container justifyContent="center">
-          <Paper
+          <Box
             sx={{
-              width: '100%',
+              padding: '32px',
             }}
+          >
+            <Box
+              sx={{
+                height: '240px',
+                width: '240px',
+                background: `url(${MoriIcon}) center/contain no-repeat`,
+              }}
+            />
+          </Box>
+          <Box
+            sx={(theme) => ({
+              border: '2px solid rgb(0, 74, 147)',
+              borderRadius: '8px',
+              width: '100%',
+              transition: theme.transitions.create('border'),
+              ['&:hover']: {
+                border: '3px solid rgb(0, 74, 147)',
+              },
+            })}
           >
             <List>
               {chats.map((chat) => (
@@ -106,7 +127,7 @@ const ChatPage = () => {
                 </IconButton>
               </Box>
             </List>
-          </Paper>
+          </Box>
         </Grid>
       </Grid>
     </Grid>
