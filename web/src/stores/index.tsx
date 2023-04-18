@@ -10,3 +10,10 @@ const Provider: React.FC = (props) => {
   )
 }
 export default Provider
+
+export const stringify = (object: any) =>
+  object !== undefined && object !== null
+    ? JSON.stringify(object, undefined, 2)
+        .replace(/"(.+)":/g, '$1:')
+        .replace(/"\$(.+)"/g, '$$$1')
+    : 'null'

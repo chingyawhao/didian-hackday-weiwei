@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { stringify } from './'
+
 export type Chat = {
   question: string
   answer?: string
@@ -30,10 +32,16 @@ export const Provider: React.FC = (props) => {
     const response = await fetch('http://localhost:8080/chat', {
       method: 'POST',
       body: `
-        query {
-          askQuestion(question: ${JSON.stringify(question)})
-        }
-      `,
+          query {
+            askQuestion(histories: ${stringify([
+              ...state.chats.flatMap((chat) => [
+                { role: 'user', content: chat.question },
+                { role: 'assistant', content: chat.answer ?? '' },
+              ]),
+              { role: 'user', content: question },
+            ])})
+          }
+        `,
     }).then((response) => response.json())
     const answer = response.data?.askQuestion ?? undefined
     setState((state) => ({

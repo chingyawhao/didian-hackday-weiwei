@@ -2,6 +2,10 @@ import { buildSchema } from 'graphql'
 
 export default buildSchema(`
   type Query {
-    askQuestion(question:String!): String!
+    askQuestion(histories: [Chat!]!): String!
+  }
+  input Chat {
+    role: String!
+    content: String!
   }
 `)
