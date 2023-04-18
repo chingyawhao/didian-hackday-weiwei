@@ -1,0 +1,37 @@
+{
+  "name": "server-typescript",
+  "version": "0.0.1",
+  "description": "Typescript template for hot-reloaded graphql Koa server",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development node-hot",
+    "compile": "cross-env NODE_ENV=production webpack --display-error-details",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.1.5",
+    "@koa/cors": "^4.0.0",
+    "graphql": "^14.0.2",
+    "koa": "^2.6.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "openai": "^3.2.1",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "@types/graphql": "^14.0.3",
+    "@types/koa": "^2.0.46",
+    "@types/koa__cors": "^4.0.0",
+    "@types/koa-bodyparser": "^5.0.1",
+    "@types/koa-router": "^7.0.33",
+    "@types/webpack": "^4.4.19",
+    "cross-env": "^5.2.0",
+    "node-hot-loader": "^1.12.2",
+    "ts-loader": "^5.3.0",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
