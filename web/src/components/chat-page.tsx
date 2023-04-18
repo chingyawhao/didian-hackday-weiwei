@@ -74,6 +74,14 @@ const ChatPage = () => {
             }}
           >
             <List>
+              {chats.map((chat) => (
+                <ListItem key={chat.question + chat.answer}>
+                  <ListItemText
+                    primary={chat.question}
+                    secondary={chat.answer}
+                  />
+                </ListItem>
+              ))}
               <Box
                 sx={{
                   display: 'flex',
@@ -97,14 +105,6 @@ const ChatPage = () => {
                   <AddIcon />
                 </IconButton>
               </Box>
-              {chats.map((chat) => (
-                <ListItem key={chat.question + chat.answer}>
-                  <ListItemText
-                    primary={chat.question}
-                    secondary={chat.answer}
-                  />
-                </ListItem>
-              ))}
             </List>
           </Paper>
         </Grid>
